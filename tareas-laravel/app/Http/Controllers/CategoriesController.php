@@ -65,7 +65,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, string $category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
         $category->name = $request->name;
         $categoriescategory->color = $request->color;
         $category->save();
@@ -76,11 +76,14 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $category)
+    public function destroy($category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
+        $category->todos()->each(function($todo){
+            $todo->delete();
+        });
         $category->delete();
 
-        return redirect()-route('categories.index')->with('success','Categoria eliminada!');
+        return redirect()->route('categories.index')->with('success','Categoria eliminada!');
     }
 }
