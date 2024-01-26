@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         Listado de productos
-                        <a href="" class="btn btn-success btn-sm float-end">Nuevo productos</a>
+                        <a href="{{ route('products.create')}}" class="btn btn-success btn-sm float-end">Nuevo productos</a>
                     </div>
                     <div class="card-body">
                         ...
