@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container"><br>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -25,6 +25,7 @@
                             <thead>
                                 <th>Descripción</th>
                                 <th>Precio</th>
+                                <th>Acción</th>
                             </thead>
                             <tbody>
                                 @foreach($products as $product)
@@ -34,6 +35,13 @@
                                     </td>
                                     <td>
                                         {{ $product->price }}
+                                    </td>
+                                    <td>
+                                        <a href="javascript: document.getElementById('delete-{{ $product->id }}').submit()" class="btn btn-danger btn-sm">Eliminar</a>
+                                        <form id="delete-{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
