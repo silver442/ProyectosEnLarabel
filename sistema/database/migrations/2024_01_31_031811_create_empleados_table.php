@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('Nombre');
             $table->string('ApellidoPaterno');
             $table->string('ApellidoMaterno');
-            $table->string('coreo');
+            $table->string('correo');
             $table->string('Foto');
 
             $table->timestamps();
