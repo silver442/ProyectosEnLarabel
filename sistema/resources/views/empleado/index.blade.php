@@ -17,7 +17,13 @@ Mostrar la lista de empeados
         @foreach( $empleados as $empleado )
         <tr>
             <td>{{ $empleado->id }}</td>
-            <td>{{ $empleado->Foto }}</td>
+
+
+            <td>
+            <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="" width="50" height="50">
+            </td>
+
+
             <td>{{ $empleado->Nombre }}</td>
             <td>{{ $empleado->ApellidoPaterno }}</td>
             <td>{{ $empleado->ApellidoMaterno }}</td>
