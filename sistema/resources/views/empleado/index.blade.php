@@ -1,4 +1,9 @@
 Mostrar la lista de empeados
+
+@if(Session::has('mensaje'))
+{{ Session::get('mensaje') }}
+@endif
+
 <a href="{{ url('empleado/create') }}">Registar nuevo empleado</a>
 <table class="table table-light">
 
