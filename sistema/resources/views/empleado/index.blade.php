@@ -1,4 +1,7 @@
-Mostrar la lista de empeados
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
 
 @if(Session::has('mensaje'))
 {{ Session::get('mensaje') }}
@@ -52,3 +55,5 @@ Mostrar la lista de empeados
     </tbody>
 
 </table>
+</div>
+@endsection
