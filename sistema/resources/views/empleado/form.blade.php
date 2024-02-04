@@ -19,3 +19,8 @@ Formulario que tendrá los datos en común con create y edit
     <input type="file" name="Foto" value="" id="Foto">
     <br><br>
     <input type="submit" value="Guardar datos">
+
+    <a href="{{ url('empleado/') }}">Regesar</a>
+
+
+    <br>
