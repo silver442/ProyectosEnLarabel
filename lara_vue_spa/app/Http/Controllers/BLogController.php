@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BLogController extends Controller
@@ -11,7 +12,8 @@ class BLogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::all();
+        return response()->json($blogs);
     }
 
     /**
@@ -27,15 +29,18 @@ class BLogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $blog = Blog::create($request->post());
+        return response()->json([
+            'blog'=>$blog
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
-        //
+        return response()->json($blog);
     }
 
     /**
@@ -49,16 +54,22 @@ class BLogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Blog $blog)
     {
-        //
+        $blog->fill($request->post())->save();
+        return response()->json([
+            'blog'=>$blog
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return response()->json([
+            'mensaje'=> 'BLOG eliminado'
+        ]);
     }
 }
